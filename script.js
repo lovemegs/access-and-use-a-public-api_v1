@@ -1,3 +1,4 @@
+// Global variables
 let employees = [];
 const urlAPI = `https://randomuser.me/api/?results=12&inc=name, picture,
 email, location, phone, dob &noinfo &nat=US`;
@@ -7,25 +8,25 @@ const modalContainer = document.querySelector('.modal-text');
 const modalClose = document.querySelector('.modal-close');
 
 
-
+// Fetching the information from the url
 fetch(urlAPI) 
 	.then(response => response.json())
 	.then(response => response.results)
 	.then(displayEmployees)
 	.catch(err => console.log(err));
 
-
+// Function for the main page with a list of 12 employees
 function displayEmployees(employeeData) {
 	employees = employeeData;
 	let employeeHTML = '';
-
+	// Iterating over the employees array 
 	employees.forEach((employee, index) => {
 		let name = employee.name;
 		let email = employee.email;
 		let city = employee.location.city;
 		let state = employee.location.state;
 		let picture = employee.picture;
-
+		// Updating the html markup with the information from the API
 		employeeHTML += `
 			<div class="card" data-index="${index}">
 		      <img class="avatar" src="${picture.large}">
@@ -40,12 +41,12 @@ function displayEmployees(employeeData) {
 	gridContainer.innerHTML = employeeHTML;
 };
 
-
+// Function for the modal overlay
 function displayModal(index) {
 	let { name, dob, phone, email, location: { city, street, state, postcode
 }, picture } = employees[index];
 	let date = new Date(dob.date);
-
+	// Updating the the html for the modal with the information from the API
 	let modalHTML = `
 	    <img class="avatar" src="${picture.large}">
 	    <div class="text-container">
@@ -63,7 +64,7 @@ function displayModal(index) {
 };
 
 
-
+// Event Listener. Displays the modal overlay when an employee card is clicked
 gridContainer.addEventListener('click', (event) => {
 	if(event.target !== gridContainer) {
 		const card = event.target.closest(".card");
@@ -72,7 +73,7 @@ gridContainer.addEventListener('click', (event) => {
 	}
 });
 
-
+// Event Listener for the close button on the overlay
 modalClose.addEventListener('click', () => {
   overlay.classList.add("hidden");
 });
