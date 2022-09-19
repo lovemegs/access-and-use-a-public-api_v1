@@ -4,8 +4,13 @@ body {
 	background-color: whitesmoke;
 }
 h1 {
-	font-size: 1.25em;
+	font-size: 1.3em;
+	font-family: sans-serif;
+	font-weight: normal;
+	position: relative;
+	left: 60px;
 	margin-left: 30px;
+	margin-bottom: 25px;
 }
 
 /* Styling for the main page and each employee card */
@@ -20,28 +25,38 @@ h1 {
 	flex-wrap: wrap;
 	background-color: white;
 	border: .05em solid black;
-	width: 350px;
-	height: 110px;
+	width: 400px;
+	height: 130px;
 	padding-bottom: 5px;
 	margin: 5px 15px 25px 15px;
 }
 .card img {
-	width: 100px;
-	height: auto;
+	width: 90px;
+	height: 100px;
+	position: relative;
+	top: 13px;
+	left: 20px;
 	padding-left: 5px;
 	padding-top: 5px;
 	border-radius: 50%;
 }
 .card h2 {
-	font-size: 1.125em;
+	font-size: 1.35em;
 	text-align: left;
+	position: relative;
+	left: 40px;
+	top: 10px;
 	padding-left: 10px;
 	margin-bottom: 5px;
 }
 .card p {
-	font-size: .8em;
+	font-size: .9em;
 	font-family: sans-serif;
+	color: darkgray;
 	text-align: left;
+	position: relative;
+	left: 40px;
+	top: 10px;
 	padding-left: 10px;
 	margin-top: 5px;
 	margin-bottom: 5px;
@@ -56,6 +71,8 @@ h1 {
 	right: 0;
 	bottom: 0;
 	background: rgba(100, 100, 100, .9);
+	margin-top: -20px;
+	margin-bottom: -60px;
 }
 
 .modal {
